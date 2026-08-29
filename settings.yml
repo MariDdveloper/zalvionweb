@@ -12,17 +12,30 @@ server:
   secret_key: "7bd6cd6d9a055167c4adfcd2228214c0"
   limiter: false
 
-# Questa struttura forza la riscrittura dei motori predefiniti
+# Aumentiamo il timeout generale a 5.0 secondi per evitare i ConnectTimeout
+outgoing:
+  request_timeout: 5.0
+
 engines:
+  - name: duckduckgo
+    engine: duckduckgo
+    disabled: false
+    # Forza l'uso di una variante diversa se supportata, altrimenti usiamo un fallback
+
+  # Aggiungiamo Brave e Qwant come vie di emergenza: non bloccano Render 
+  # e ti daranno la data corretta di oggi (2026)
+  - name: brave
+    engine: brave
+    disabled: false
+
+  - name: qwant
+    engine: qwant
+    disabled: false
+
   - name: google
     engine: google
-    shortcut: g
-    disabled: false
+    disabled: true
 
   - name: wikidata
     engine: wikidata
     disabled: true
-
-  - name: duckduckgo
-    engine: duckduckgo
-    disabled: false
