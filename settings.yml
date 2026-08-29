@@ -12,15 +12,17 @@ server:
   secret_key: "7bd6cd6d9a055167c4adfcd2228214c0"
   limiter: false
 
+# Questa struttura forza la riscrittura dei motori predefiniti
 engines:
   - name: google
-    disabled: false
-    # Proviamo ad abilitarlo definendo parametri standard per ridurre i blocchi
-    categories: general
+    engine: google
     shortcut: g
+    disabled: false
 
   - name: wikidata
-    disabled: true # Lasciamolo disabilitato per ora, evitiamo che blocchi l'avvio
+    engine: wikidata
+    disabled: true
 
   - name: duckduckgo
+    engine: duckduckgo
     disabled: false
