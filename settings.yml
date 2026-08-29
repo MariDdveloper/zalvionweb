@@ -11,3 +11,11 @@ search:
 server:
   secret_key: "7bd6cd6d9a055167c4adfcd2228214c0"
   limiter: false
+
+engines:
+  - name: google
+    disabled: true
+  - name: wikidata
+    disabled: true
+  - name: duckduckgo
+    disabled: false
