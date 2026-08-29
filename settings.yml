@@ -1,0 +1,13 @@
+use_default_settings: true
+
+general:
+  instance_name: "Zalvion Search"
+
+search:
+  formats:
+    - html
+    - json
+
+server:
+  secret_key: "7bd6cd6d9a055167c4adfcd2228214c0"
+  limiter: false
