@@ -9,13 +9,19 @@ search:
     - json
 
 server:
+  # Genera una chiave segreta robusta se usi i cookie o sessioni
   secret_key: "7bd6cd6d9a055167c4adfcd2228214c0"
   limiter: false
 
 engines:
   - name: google
     disabled: true
+    # Rimosso o disabilitato del tutto per evitare il blocco 403 immediato da Google
+
   - name: wikidata
-    disabled: true
+    disabled: false # Abilitato: utile per i box informativi (Wikipedia) senza blocchi 403
+
   - name: duckduckgo
     disabled: false
+    # DuckDuckGo a volte blocca se il traffico è troppo alto. 
+    # Se continui ad avere 403, è l'IP del tuo server a essere bloccato.
